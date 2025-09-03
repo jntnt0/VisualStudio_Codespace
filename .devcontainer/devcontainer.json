@@ -1,0 +1,19 @@
+{
+  "name": "My Codespace",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "msazurermtools.azurerm-vscode-tools",
+        "ms-vscode.powershell"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "pwsh"
+      }
+    }
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/powershell:1": {},
+    "ghcr.io/devcontainers/features/azure-cli:1": {}
+  },
+  "postCreateCommand": "pwsh -Command \"[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; Install-Module -Name Az.Accounts -Scope CurrentUser -Force -Repository PSGallery -AllowClobber; ./scripts/login.ps1\""
+}
