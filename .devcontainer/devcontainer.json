@@ -1,19 +1,33 @@
+// .devcontainer/devcontainer.json
 {
-  "name": "My Codespace",
+  "name": "Az-PowerShell-Codespace",
+  "build": {
+    "context": ".",
+    "dockerfile": "Dockerfile"
+  },
   "customizations": {
     "vscode": {
       "extensions": [
         "msazurermtools.azurerm-vscode-tools",
-        "ms-vscode.powershell"
+        "ms-vscode.powershell",
+        "ms-azuretools.vscode-azureresourcegroups",
+        "ms-vscode.vscode-node-azure-pack",
+        "ms-azuretools.vscode-azurevirtualmachines",
+        "azps-tools.azps-tools",
+        "ms-azure-devops.azure-pipelines",
+        "ms-azuretools.azure-dev",
+        "ms-azuretools.vscode-azurestorage",
+        "ms-azuretools.vscode-cosmosdb",
+        "ms-azure-load-testing.microsoft-testing",
+        "ms-codespaces-tools.ado-codespaces-auth",
+        "AzurePolicy.azurepolicyextension",
+        "formulahendry.azure-storage-explorer",
+        "ms-azurecache.vscode-azurecache",
+        "VisualStudioOnlineApplicationInsights.application-insights"
       ],
       "settings": {
         "terminal.integrated.defaultProfile.linux": "pwsh"
       }
     }
-  },
-  "features": {
-    "ghcr.io/devcontainers/features/powershell:1": {},
-    "ghcr.io/devcontainers/features/azure-cli:1": {}
-  },
-  "postCreateCommand": "pwsh -Command \"[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; Install-Module -Name Az.Accounts -Scope CurrentUser -Force -Repository PSGallery -AllowClobber; ./scripts/login.ps1\""
+  }
 }
